@@ -7,6 +7,15 @@
   </head>
   <body>
     <h1>The Human Project</h1>
-    <p>This is a project to represent the entirity of human history!</p>
+    <p>This is a project to represent the entirity of human history!</p>    
+    <script>
+    const gps_url = "https://qubstudentcloud-my.sharepoint.com/personal/3048873_ads_qub_ac_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F3048873%5Fads%5Fqub%5Fac%5Fuk%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2Ft%2Ehtml&parent=%2Fpersonal%2F3048873%5Fads%5Fqub%5Fac%5Fuk%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files&p=5";
+    async function getGPS(){
+      const resp = await fetch(gps_url);
+      const data = await resp.JSON();
+      console.console.log(data);
+    }
+    getGPS();
+    </script>
   </body>
 </html>
