@@ -7,15 +7,94 @@
   </head>
   <body>
     <h1>The Human Project</h1>
-    <p>This is a project to represent the entirity of human history!</p>    
-    <script>
-    const gps_url = "https://qubstudentcloud-my.sharepoint.com/personal/3048873_ads_qub_ac_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F3048873%5Fads%5Fqub%5Fac%5Fuk%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2Ft%2Ehtml&parent=%2Fpersonal%2F3048873%5Fads%5Fqub%5Fac%5Fuk%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files&p=5";
-    async function getGPS(){
-      const resp = await fetch(gps_url);
-      const data = await resp.JSON();
-      console.console.log(data);
-    }
-    getGPS();
+        <p>This is a project to represent the entirity of human history!</p>    
+    <script type="text/javascript">
+      let movie = 
+      [
+        {
+          "TileName": "Origin",
+          "TileType": "GrassLand",
+          "TileTime": 2022,
+          "TimeLine":
+          [
+            {
+              "Houses":0,
+              "People":0,
+              "Members":[
+                {
+                  "Animals":[
+                    {
+                      "AnimalType":"Bird",
+                      "AnimalSize":"Big"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      console.log(movie)
+      async function populate() 
+      {
+
+        const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+        const request = new Request(requestURL);
+        
+        const response = await fetch(request);
+        const superHeroes = await response.json();
+        
+        populateHeader(superHeroes);
+        populateHeroes(superHeroes);
+        
+      }
+      function populateHeader(obj) 
+      {
+        const header = document.querySelector('header');
+        const myH1 = document.createElement('h1');
+        myH1.textContent = obj['squadName'];
+        header.appendChild(myH1);
+      
+        const myPara = document.createElement('p');
+        myPara.textContent = `Hometown: ${obj['homeTown']} // Formed: ${obj['formed']}`;
+        header.appendChild(myPara);
+      }
+      
+      function populateHeroes(obj) 
+      {
+        const section = document.querySelector('section');
+        const heroes = obj['members'];
+      
+        for (const hero of heroes) {
+          const myArticle = document.createElement('article');
+          const myH2 = document.createElement('h2');
+          const myPara1 = document.createElement('p');
+          const myPara2 = document.createElement('p');
+          const myPara3 = document.createElement('p');
+          const myList = document.createElement('ul');
+      
+          myH2.textContent = hero.name;
+          myPara1.textContent = `Secret identity: ${hero.secretIdentity}`;
+          myPara2.textContent = `Age: ${hero.age}`;
+          myPara3.textContent = 'Superpowers:';
+      
+          const superPowers = hero.powers;
+          for (const power of superPowers) {
+            const listItem = document.createElement('li');
+            listItem.textContent = power;
+            myList.appendChild(listItem);
+          }
+      
+          myArticle.appendChild(myH2);
+          myArticle.appendChild(myPara1);
+          myArticle.appendChild(myPara2);
+          myArticle.appendChild(myPara3);
+          myArticle.appendChild(myList);
+      
+          section.appendChild(myArticle);
+        }
+      }
+
     </script>
   </body>
 </html>
