@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,95 +7,89 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>The Human Project</h1>
-        <p>This is a project to represent the entirity of human history!</p>    
+    <header>
+      <h1>
+        The Human Project
+      </h1>
+        <p>This is a project to represent the entirity of human history!</p> 
+    </header> 
+    <section>  
+
+    </section>
     <script type="text/javascript">
-      let movie = 
-      [
+      const movie = `
         {
           "TileName": "Origin",
           "TileType": "GrassLand",
-          "TileTime": 2022,
-          "TimeLine":
-          [
-            {
-              "Houses":0,
-              "People":0,
-              "Members":[
-                {
-                  "Animals":[
-                    {
-                      "AnimalType":"Bird",
-                      "AnimalSize":"Big"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "TileTime": 2022, 
+          "Members":
+          {
+            "Houses":[
+              null
+            ],
+            "People":[
+              "Jeremy"
+            ],
+            "Animals":[
+              "Bird",
+              "Dog"
+            ]
+          }
         }
-      ]
-      console.log(movie)
-      async function populate() 
+      `
+      const movies = JSON.parse(movie)
+      console.log(movies)
+      populate(movies);
+      async function populate(object) 
       {
-
-        const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-        const request = new Request(requestURL);
-        
-        const response = await fetch(request);
-        const superHeroes = await response.json();
-        
-        populateHeader(superHeroes);
-        populateHeroes(superHeroes);
-        
+        populateHeader(object)
       }
       function populateHeader(obj) 
       {
+        console.log(obj)
+        var tileName = obj.TileName
+        console.log(obj.TileName)
         const header = document.querySelector('header');
-        const myH1 = document.createElement('h1');
-        myH1.textContent = obj['squadName'];
-        header.appendChild(myH1);
+        const myH2 = document.createElement('h2');
+        myH2.textContent = `TileName: ${obj['TileName']}`;
+        header.appendChild(myH2);
       
-        const myPara = document.createElement('p');
-        myPara.textContent = `Hometown: ${obj['homeTown']} // Formed: ${obj['formed']}`;
-        header.appendChild(myPara);
+        const para1 = document.createElement('p');
+        para1.textContent = `TileType: ${obj['TileType']} // Year: ${obj['TileTime']}`;
+        header.appendChild(para1);
       }
-      
-      function populateHeroes(obj) 
+
+      function populateAnimals(obj) 
       {
         const section = document.querySelector('section');
-        const heroes = obj['members'];
+        const tiles = obj['Members'];
       
-        for (const hero of heroes) {
+        for (const tile of tiles) {
           const myArticle = document.createElement('article');
           const myH2 = document.createElement('h2');
           const myPara1 = document.createElement('p');
           const myPara2 = document.createElement('p');
-          const myPara3 = document.createElement('p');
           const myList = document.createElement('ul');
       
-          myH2.textContent = hero.name;
-          myPara1.textContent = `Secret identity: ${hero.secretIdentity}`;
-          myPara2.textContent = `Age: ${hero.age}`;
-          myPara3.textContent = 'Superpowers:';
+          myH2.textContent = `Houses: ${tile.Houses}`;
+          myPara1.textContent = `People: ${tile.People}`;
+          myPara2.textContent = 'Superpowers:';
       
-          const superPowers = hero.powers;
-          for (const power of superPowers) {
+          const animals = tile.Animals;
+          for (const animal of animals) {
             const listItem = document.createElement('li');
-            listItem.textContent = power;
+            listItem.textContent = animal;
             myList.appendChild(listItem);
           }
       
           myArticle.appendChild(myH2);
           myArticle.appendChild(myPara1);
           myArticle.appendChild(myPara2);
-          myArticle.appendChild(myPara3);
           myArticle.appendChild(myList);
       
           section.appendChild(myArticle);
         }
       }
-
     </script>
   </body>
 </html>

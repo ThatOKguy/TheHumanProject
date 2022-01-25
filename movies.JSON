@@ -2,22 +2,19 @@
   {
     "TileName": "Origin",
     "TileType": "GrassLand",
-    "TileTime": 2022,
-    "TimeLine":[
-      {
-        "Houses":0,
-        "People":0,
-        "Members":[
-          {
-            "Animals":[
-              {
-                "AnimalType":"Bird",
-                "AnimalSize":"Big"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "TileTime": 2022, 
+    "Members":
+    {
+      "Houses":[
+        null
+      ],
+      "People":[
+        "Jeremy"
+      ],
+      "Animals":[
+        "Bird",
+        "Dog"
+      ]
+    }
   }
 ]
