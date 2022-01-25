@@ -1,20 +1,18 @@
-[
+{
+  "TileName": "Origin",
+  "TileType": "GrassLand",
+  "TileTime": 2022, 
+  "Members":
   {
-    "TileName": "Origin",
-    "TileType": "GrassLand",
-    "TileTime": 2022, 
-    "Members":
-    {
-      "Houses":[
-        null
-      ],
-      "People":[
-        "Jeremy"
-      ],
-      "Animals":[
-        "Bird",
-        "Dog"
-      ]
-    }
+    "Houses":[
+      null
+    ],
+    "People":[
+      "Jeremy"
+    ],
+    "Animals":[
+      "Bird",
+      "Dog"
+    ]
   }
-]
+}

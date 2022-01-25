@@ -17,7 +17,7 @@
 
     </section>
     <script type="text/javascript">
-      const movie = `
+      const movies = 
         {
           "TileName": "Origin",
           "TileType": "GrassLand",
@@ -36,9 +36,6 @@
             ]
           }
         }
-      `
-      const movies = JSON.parse(movie)
-      console.log(movies)
       populate(movies);
       async function populate(object) 
       {
