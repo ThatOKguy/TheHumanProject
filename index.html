@@ -35,31 +35,31 @@
               "Dog"
             ]
           }
-        }
-      populate(movies);
-      async function populate(object) 
+        };
+      function populate(object)
       {
-        populateHeader(object)
+        populateHeader(object);
+        populateAnimals(object);
       }
       function populateHeader(obj) 
       {
-        console.log(obj)
-        var tileName = obj.TileName
-        console.log(obj.TileName)
+        console.log(obj);
+        var tileName = obj.TileName;
+        console.log(obj.TileName);
         const header = document.querySelector('header');
         const myH2 = document.createElement('h2');
-        myH2.textContent = `TileName: ${obj['TileName']}`;
+        myH2.textContent = `TileName: ${obj.TileName}`;
         header.appendChild(myH2);
       
         const para1 = document.createElement('p');
-        para1.textContent = `TileType: ${obj['TileType']} // Year: ${obj['TileTime']}`;
+        para1.textContent = `TileType: ${obj.TileType} // Year: ${obj.TileTime}`;
         header.appendChild(para1);
       }
 
       function populateAnimals(obj) 
       {
         const section = document.querySelector('section');
-        const tiles = obj['Members'];
+        const tiles = obj.Members;
       
         for (const tile of tiles) {
           const myArticle = document.createElement('article');
@@ -87,6 +87,7 @@
           section.appendChild(myArticle);
         }
       }
+      populate(movies);
     </script>
   </body>
 </html>
