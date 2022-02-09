@@ -11,83 +11,102 @@
       <h1>
         The Human Project
       </h1>
-        <p>This is a project to represent the entirity of human history!</p> 
-    </header> 
-    <section>  
+        <p>This is a project to represent the entirity of human history!</p>
+    </header>
+    <section>
 
     </section>
     <script type="text/javascript">
-      const movies = 
+      const movies =
         {
-          "TileName": "Origin",
+          "TileNumber": 0,
           "TileType": "GrassLand",
-          "TileTime": 2022, 
+          "TileTime": 2022,
           "Members":
-          {
-            "Houses":[
-              null
-            ],
-            "People":[
-              "Jeremy"
-            ],
-            "Animals":[
-              "Bird",
-              "Dog"
-            ]
-          }
+          [
+            {
+              "Type":"House",
+              "Name":"House1",
+              "Position":
+              [
+                13,
+                125
+              ]
+            },
+            {
+              "Type":"Person",
+              "Name":"Jeromy",
+              "Position":
+              [
+                376,
+                -187
+              ]
+            },
+            {
+              "Type":"Bird",
+              "Name":"Stevie",
+              "Position":
+              [
+                 370,
+                 412
+              ]
+            }
+          ]
         };
+      populate(movies);
       function populate(object)
       {
         populateHeader(object);
-        populateAnimals(object);
+        populateMembers(object);
       }
-      function populateHeader(obj) 
+      function populateHeader(obj)
       {
         console.log(obj);
-        var tileName = obj.TileName;
-        console.log(obj.TileName);
+        var tileNumber = obj.TileNumber;
+        console.log(obj.TileNumber);
         const header = document.querySelector('header');
         const myH2 = document.createElement('h2');
-        myH2.textContent = `TileName: ${obj.TileName}`;
+        myH2.textContent = "TileNumber:" + tileNumber;
         header.appendChild(myH2);
-      
+
         const para1 = document.createElement('p');
-        para1.textContent = `TileType: ${obj.TileType} // Year: ${obj.TileTime}`;
+        var tileType = obj.TileType;
+        var tileTime = obj.TileTime;
+        para1.textContent = "TileType:" + tileType +" // Year:" + tileTime;
         header.appendChild(para1);
       }
 
-      function populateAnimals(obj) 
+      function populateMembers(obj)
       {
         const section = document.querySelector('section');
-        const tiles = obj.Members;
-      
-        for (const tile of tiles) {
+        const members = obj.Members;
+
+        for (const member of members) {
           const myArticle = document.createElement('article');
           const myH2 = document.createElement('h2');
           const myPara1 = document.createElement('p');
           const myPara2 = document.createElement('p');
           const myList = document.createElement('ul');
-      
-          myH2.textContent = `Houses: ${tile.Houses}`;
-          myPara1.textContent = `People: ${tile.People}`;
-          myPara2.textContent = 'Superpowers:';
-      
-          const animals = tile.Animals;
-          for (const animal of animals) {
+
+          myH2.textContent = "Type:" + member.Type;
+          myPara1.textContent = "Name:" + member.Name;
+          myPara2.textContent = 'Position Coordinates:';
+
+          const positions = member.Position;
+          for (const position of positions) {
             const listItem = document.createElement('li');
-            listItem.textContent = animal;
+            listItem.textContent = position;
             myList.appendChild(listItem);
           }
-      
+
           myArticle.appendChild(myH2);
           myArticle.appendChild(myPara1);
           myArticle.appendChild(myPara2);
           myArticle.appendChild(myList);
-      
+
           section.appendChild(myArticle);
         }
       }
-      populate(movies);
     </script>
   </body>
 </html>

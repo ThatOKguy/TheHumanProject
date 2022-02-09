@@ -1,18 +1,35 @@
 {
-  "TileName": "Origin",
-  "TileType": "GrassLand",
-  "TileTime": 2022, 
-  "Members":
-  {
-    "Houses":[
-      null
-    ],
-    "People":[
-      "Jeremy"
-    ],
-    "Animals":[
-      "Bird",
-      "Dog"
-    ]
-  }
-}
+   "TileNumber": 0,
+   "TileType": "GrassLand",
+   "TileTime": 2022,
+   "Members":
+   [
+     {
+       "Type":"House",
+       "Name":"House1",
+       "Position":
+       [
+         13,
+         125
+       ]
+     },
+     {
+       "Type":"Person",
+       "Name":"Jeromy",
+       "Position":
+       [
+         376,
+         -187
+       ]
+     },
+     {
+       "Type":"Bird",
+       "Name":"Stevie",
+       "Position":
+       [
+          370,
+          412
+       ]
+     }
+   ]
+ }
