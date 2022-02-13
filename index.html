@@ -58,6 +58,7 @@
       {
         populateHeader(object);
         populateMembers(object);
+        includesvg(object);
       }
       function populateHeader(obj)
       {
@@ -104,6 +105,37 @@
           myArticle.appendChild(myPara2);
           myArticle.appendChild(myList);
 
+          section.appendChild(myArticle);
+        }
+      }
+
+      function includesvg(obj)
+      {
+        const section = document.querySelector('section');
+        const myArticle = document.createElement('article');
+        const svgContainer = document.createElement('div');
+        var xmlns = "http://www.w3.org/2000/svg";
+        const members = obj.Members;
+        let mySVG = null;
+        var boxWidth = 300;
+        var boxHeight = 300;
+
+        for (const member of members) {
+          let type = member.Type;
+          if (type == "Bird")
+          {
+            console.log(type);
+            mySVG = document.createElementNS(xmlns, "svg");
+            mySVG.setAttributeNS(null, "viewBox", "0 0 " + boxWidth + " " + boxHeight);
+            mySVG.setAttributeNS(null, "width", boxWidth);
+            mySVG.setAttributeNS(null, "height", boxHeight);
+            mySVG.style.display = "block";
+          }
+        }
+        if( mySVG != null){
+          svgContainer.setAttribute("id","svgContainer");
+          svgContainer.appendChild(mySVG);
+          myArticle.appendChild(svgContainer);
           section.appendChild(myArticle);
         }
       }
