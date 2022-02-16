@@ -53,6 +53,19 @@
             }
           ]
         };
+      var lookupDictionary =
+      {
+        "Fox":
+        {
+          "url":"https://www.flaticon.com/free-icon/fox_616519?term=fox&page=1&position=1&page=1&position=1&related_id=616519&origin=tag#",
+          "":""
+        },
+        "Bird":
+        {
+          "url":"SVG/Bird.svg",
+          "":""
+        }
+      };
       populate(movies);
       function populate(object)
       {
@@ -119,25 +132,24 @@
         let mySVG = null;
         var boxWidth = 300;
         var boxHeight = 300;
-
+        let res;
         for (const member of members) {
           let type = member.Type;
-          if (type == "Bird")
-          {
-            console.log(type);
+          res = lookupDictionary[type];
+
             mySVG = document.createElementNS(xmlns, "svg");
             mySVG.setAttributeNS(null, "viewBox", "0 0 " + boxWidth + " " + boxHeight);
             mySVG.setAttributeNS(null, "width", boxWidth);
             mySVG.setAttributeNS(null, "height", boxHeight);
             mySVG.style.display = "block";
-          }
         }
-        if( mySVG != null){
-          svgContainer.setAttribute("id","svgContainer");
-          svgContainer.appendChild(mySVG);
-          myArticle.appendChild(svgContainer);
-          section.appendChild(myArticle);
-        }
+      console.log(res.url);
+      const jsonSVG = document.createElement('img');
+      jsonSVG.src = res.url;
+      svgContainer.setAttribute("id","svgContainer");
+      svgContainer.appendChild(jsonSVG);
+      myArticle.appendChild(svgContainer);
+      section.appendChild(myArticle);
       }
     </script>
   </body>
