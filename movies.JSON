@@ -1,35 +1,44 @@
 {
-  "TileNumber": 0,
-  "TileType": "GrassLand",
-  "TileTime": 2022,
-  "Members":
-  [
-    {
-      "Type":"House",
-      "Name":"House1",
-      "Position":
-      [
-        13,
-        125
-      ]
-    },
-    {
-      "Type":"Person",
-      "Name":"Jeromy",
-      "Position":
-      [
-        376,
-        -187
-      ]
-    },
-    {
-      "Type":"Bird",
-      "Name":"Stevie",
-      "Position":
-      [
-         370,
-         412
-      ]
-    }
-  ]
+ "TileNumber": 0,
+ "Type": "GrassLand",
+ "Latitude":"-90",
+ "Longitude":"90",
+ "Radius":"5m",
+ "Time": 2022,
+ "Members":
+ [
+  {
+   "Type":"House",
+   "Name":"House1",
+   "Height":"2.25",
+   "Width":"2.0",
+   "Position":
+   [
+    "3m",
+    "1.25m"
+   ]
+  },
+  {
+   "Type":"Person",
+   "Name":"Jeromy",
+   "Height":"1.8",
+   "Width":"0.3",
+   "Position":
+   [
+    "3.76m",
+    "-1.87m"
+   ]
+  },
+  {
+   "Type":"Bird",
+   "Name":"Stevie",
+   "Height":"0.2",
+   "Width":"0.35",
+   "Position":
+   [
+    "3.70m",
+    "4.12m"
+   ]
+  }
+ ]
 }

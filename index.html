@@ -20,35 +20,44 @@
       const movies =
         {
           "TileNumber": 0,
-          "TileType": "GrassLand",
-          "TileTime": 2022,
+          "Type": "GrassLand",
+          "Latitude":"-90",
+          "Longitude":"90",
+          "Radius":"5m",
+          "Time": 2022,
           "Members":
           [
             {
               "Type":"House",
               "Name":"House1",
+              "Height":"2.25",
+              "Width":"2.0",
               "Position":
               [
-                13,
-                125
+                "3m",
+                "1.25m"
               ]
             },
             {
               "Type":"Person",
               "Name":"Jeromy",
+              "Height":"1.8",
+              "Width":"0.3",
               "Position":
               [
-                376,
-                -187
+                "3.76m",
+                "-1.87m"
               ]
             },
             {
               "Type":"Bird",
               "Name":"Stevie",
+              "Height":"0.2",
+              "Width":"0.35",
               "Position":
               [
-                 370,
-                 412
+                 "3.70m",
+                 "4.12m"
               ]
             }
           ]
@@ -82,8 +91,8 @@
         header.appendChild(myH2);
 
         const para1 = document.createElement('p');
-        var tileType = obj.TileType;
-        var tileTime = obj.TileTime;
+        var tileType = obj.Type;
+        var tileTime = obj.Time;
         para1.textContent = "TileType:" + tileType +" // Year:" + tileTime;
         header.appendChild(para1);
       }
