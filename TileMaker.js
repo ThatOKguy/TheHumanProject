@@ -130,105 +130,56 @@ const movies =
     function populate(object)
     {
       includesvg(object);
-      populateHeader(object);
-      populateMembers(object);
-    }
-    function populateHeader(obj)
-    {
-      var tileNumber = obj.TileNumber;
-
-      const section = document.querySelector('section');
-      const myH2 = document.createElement('h2');
-      myH2.textContent = "TileNumber:" + tileNumber;
-      section.appendChild(myH2);
-
-      const para1 = document.createElement('p');
-      var tileType = obj.Type;
-      var tileTime = obj.Time;
-      para1.textContent = "TileType:" + tileType +" // Year:" + tileTime;
-      section.appendChild(para1);
-    }
-
-    function populateMembers(obj)
-    {
-      const section = document.querySelector('section');
-      const time = obj.Time;
-      const mem = memberLookup[time];
-      const members = mem.Members;
-      for (const member of members) {
-        const myArticle = document.createElement('article');
-        const myH2 = document.createElement('h2');
-        const myPara1 = document.createElement('p');
-        const myPara2 = document.createElement('p');
-        const myList = document.createElement('ul');
-
-        myH2.textContent = "Type:" + member.Type;
-        myPara1.textContent = "Name:" + member.Name;
-        myPara2.textContent = 'Position Coordinates:';
-
-        const positions = member.Position;
-        for (const position of positions) {
-          const listItem = document.createElement('li');
-          listItem.textContent = position + "m";
-          myList.appendChild(listItem);
-        }
-
-        myArticle.appendChild(myH2);
-        myArticle.appendChild(myPara1);
-        myArticle.appendChild(myPara2);
-        myArticle.appendChild(myList);
-
-        section.appendChild(myArticle);
-      }
     }
 
     function includesvg(obj)
     {
+      if(posChecker == true && timeChecker == true){
       const header = document.querySelector('header');
       const myArticle = document.createElement('article');
       const svgContainer = document.createElement('svgcontainer');
-      const sphere = document.getElementById('ball');
       svgContainer.class = "parent";
       const time = obj.Time;
       const mem = memberLookup[time];
       const members = mem.Members;
       var boxWidth = 1000;
       var boxHeight = 1000;
+      var screensizing = 100;
       let res;
       let type;
+      let red = memberLookup[2022];
       res = lookupDictionary[obj.Type];
       var back = Snap('#svg');
       back.image(res.url, 0, 0, boxWidth, boxHeight);
       var depth = 1;
-      var id = 0;
       for (const member of members) {
         if(member.Depth == depth){
             type = member.Type;
             res = lookupDictionary[type];
             let xMeters = member.Position[0];
-            let x = xMeters * 100 + boxWidth/2;
+            let x = xMeters * screensizing + boxWidth/2;
             let yMeters = member.Position[1];
-            let y = yMeters * 100 + boxHeight/2;
+            let y = yMeters * screensizing + boxHeight/2;
             var jsonSnap = Snap('#svg');
             jsonSnap.image(res.url, x, y, res.Width, res.Height);
         }
         else{
-            var newdepth = depth;
-            for (const newmember of members){
-                if(newmember.Depth == newdepth){
-                    type = newmember.Type;
-                    res = lookupDictionary[type];
-                    let xMeters = newmember.Position[0];
-                    let x = xMeters * 100 + boxWidth/2;
-                    let yMeters = newmember.Position[1];
-                    let y = yMeters * 100 + boxHeight/2;
-                    var jsonSnap = Snap('#svg');
-                    jsonSnap.image(res.url, x, y, res.Width, res.Height);
-                }
-
+          var newdepth = depth;
+          for (const newmember of members){
+            if(newmember.Depth == newdepth){
+              type = newmember.Type;
+              res = lookupDictionary[type];
+              let xMeters = newmember.Position[0];
+              let x = xMeters * 100 + boxWidth/2;
+              let yMeters = newmember.Position[1];
+              let y = yMeters * 100 + boxHeight/2;
+              var jsonSnap = Snap('#svg');
+              jsonSnap.image(res.url, x, y, res.Width, res.Height);
             }
+          }
         }
         depth = depth + 1;
       }
       header.appendChild(myArticle);
+      }
     }
