@@ -58,12 +58,12 @@ function renderScreen(latitude, longitude, time, radius, obj){
     for(tName of tileNames){
         //I can the get the tile I want using the tile Name as a lookup
         tile = tiles[tName];
-    
+
         //declare a tile number which will be used to lookup the correct tile
         let tileName = tile.TileName;
         //use the tileName as a lookup for the spaceTimeLookup for the latitude, Longitude and time.
         coordinates = spaceTimeLookup[tileName];
-        
+
         //create a for loop to loop through all of the different coordinates/times for the tile
         for( const tilePlacement of coordinates)
         {
@@ -99,7 +99,7 @@ function renderScreen(latitude, longitude, time, radius, obj){
             if (camTime >= startTime && camTime <= endTime){
                 timeChecker = true;
             }
-            
+
             //Get the size of the tiles height and width from the radius of the tile
             //Treat it as a square to make the calculations much simpler
             let tileHypotenuse = tileRadius * 2,
@@ -129,7 +129,7 @@ function renderScreen(latitude, longitude, time, radius, obj){
             //Calculate the x an y values of the tile
             let tileX = middleX + (xDistance * pixelScale),
             tileY = middleY + (yDistance * pixelScale);
-    
+
             //Then create an if statement to see if these booleans are true.
             //If the are draw the tile
             //If not do nothing and move to the next tile.
@@ -137,26 +137,26 @@ function renderScreen(latitude, longitude, time, radius, obj){
                 //Create the background of the tile using the tile type
                 back = iconDict[tile.Type];
                 obj.image(back.url,tileX,tileY,pixelWidth,pixelHeight);
-    
+
                 //get the middle x and y values of the tile to be used when drawing members on the tile
                 tileMiddleX = tileX + (pixelWidth/2),
                 tileMiddleY = tileY + (pixelHeight/2);
-    
+
                 //get the array of members of the tile
                 const members = tile.Members;
-                
+
                 //Initialize the sorted members array to empty so that it doesn't print
                 //repeated things on different tiles
                 sortedMembers = [
-                    
+
                 ];
                 memberArray = [
 
                 ];
                 //loop through the members to print them
                 for (const member of members){
-                   
-                    
+
+
                     //add the member to the array at the start
                     memberArray.unshift(member);
                     //Sort the array
@@ -165,7 +165,7 @@ function renderScreen(latitude, longitude, time, radius, obj){
                     });
                     //could also be presented in the format
                     //memberArray.sort((a,b) => parseFloat(a.Height) - parseFloat(b.Height));
-                                  
+
                 }
                 console.log(sortedMembers);
                 for (sortedMember of sortedMembers){
@@ -181,10 +181,10 @@ function renderScreen(latitude, longitude, time, radius, obj){
                     //Use the snap obj to add the icon to the screen
                     obj.image(res.url, x, y, res.Width/pixelScale, res.Length/pixelScale);
                     //I can use my previous methods to calculate the distance in x and y to determine where to print the tile.
-                }      
-                
+                }
+
             }
-            
+
         }
     }
-}    
+}

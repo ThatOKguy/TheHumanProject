@@ -1,5 +1,149 @@
+body{
+  margin: 0;
+  background: grey;
+  text-align: center;
+}
+
 svg{
-    height: 1080px;
-    width: 1920px;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.svgcontainer {
+  text-align: start;
+  width: 400px;
+  height: 400px;
+  background-color: #a0a0a0;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+}
+
+.image2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.roundedimage {
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+  border-radius: 50;
+}
+
+.ball {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  background: url('SVG/World-Map.svg') repeat-x;
+  background-size: auto 100%;
+  -webkit-animation: move-map 30s infinite linear;
+  -moz-animation: move-map 30s infinite linear;
+  -o-animation: move-map 30s infinite linear;
+  -ms-animation: move-map 30s infinite linear;
+  animation: move-map 30s infinite linear;
+}
+
+.ball:before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: -40px 10px 70px 10px rgba(0,0,0,0.5) inset;
+  z-index: 2;
+}
+
+.ball:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  background: radial-gradient(circle at 50% 80%, #81e8f6, #76deef 10%, #055194 66%, #062745 100%);
+}
+
+.ball .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+  -webkit-transform: rotateX(90deg) translateZ(-150px);
+  -moz-transform: rotateX(90deg) translateZ(-150px);
+  -ms-transform: rotateX(90deg) translateZ(-150px);
+  -o-transform: rotateX(90deg) translateZ(-150px);
+  transform: rotateX(90deg) translateZ(-150px);
+  z-index: -1;
+}
+body {
+  width: 300px;
+  margin: 20px auto;
+  background: linear-gradient(to bottom, rgba(100, 100, 100, 0.2) 0%, rgba(255, 255, 255, 0.5) 40%, #ffffff 100%);
+  background-repeat: no-repeat;
+}
+
+.stage {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  margin: 20px;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  -ms-perspective-origin: 50% 50%;
+  -o-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
 }

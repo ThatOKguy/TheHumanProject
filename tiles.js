@@ -1,5 +1,5 @@
 //sample tile definition of a person entering there house
-const tiles = 
+const tiles =
 {
 //I have included an array of 2 tiles so that in the guide the person following will know how arrays work
 //and it should be much less of a step to add a third tile than to change it to an array and add a second
@@ -20,7 +20,7 @@ const tiles =
             {
                 //Type is used in the lookup table to get the icon of the member
                 "Type":"House",
-                //Name may be used as a unique identifier if it is needed in future to 
+                //Name may be used as a unique identifier if it is needed in future to
                 //determine between different tile members of the same type
                 "Name":"House1",
                 //Length of the icon
