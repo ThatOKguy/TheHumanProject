@@ -1,5 +1,5 @@
 //Lookup table with the tile number to look up an array of Latitude, Longitude and Times to display the tile at.
-const spaceTimeLookup =
+const spaceTimeLookup = 
 {
     //Lookup the tile number
     "Housing1":

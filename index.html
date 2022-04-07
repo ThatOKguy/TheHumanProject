@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
   </head>
   <body>
-    <header>
-    </header>
-    <section>
-      <svg id ="svg" viewBox="0 0 1000 1000"></svg>
-    </section>
+    <div id = svgContainer>  
+      <svg id = "svg" style = "position: relative; left: 0px; top: 0px;"></svg>
+    </div>
     <script type="text/javascript" src="geographiclib/node_modules/geographiclib/geographiclib.js"></script>
     <script src="Snap.svg-0.5.1/dist/snap.svg-min.js"></script>
-    <script src="Renderer.js"></script>
-    <script src="TileMaker.js"></script>
+    <script src="tiles.js"></script>
+    <script src="tileName.js"></script>
+    <script src="spaceTimeLookup.js"></script>
+    <script src="iconDict.js"></script>
+    <script src="render.js"></script>
   </body>
 </html>
